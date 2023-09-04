@@ -1,6 +1,7 @@
 import java.util.Scanner;
+import matrices.MatrizUtils;
 
-public class ejercicio1 {
+public class ejercicio01 {
   public static Scanner sc = new Scanner(System.in);
 
   public static void main(String[] args) {
@@ -11,33 +12,13 @@ public class ejercicio1 {
     System.out.print("Ingrese la cantidad de columnas: ");
     int columnas = sc.nextInt();
 
-    int[][] matriz = llenarMatriz(filas, columnas);
+    int[][] matriz = MatrizUtils.obtenerMatriz(filas, columnas);
 
     System.out.println("Matriz: ");
-    mostrarMatriz(matriz);
+    MatrizUtils.mostrarMatriz(matriz);
 
     System.out.println("Suma de elementos de la matriz: " + sumarElementosMatriz(matriz));
     sc.close();
-  }
-
-  private static int[][] llenarMatriz(int filas, int columnas) {
-    int[][] matriz = new int[filas][columnas];
-    for (int i = 0; i < filas; i++) {
-      for (int j = 0; j < columnas; j++) {
-        System.out.print("Ingrese el valor en la posición [" + i + "][" + j + "]: ");
-        matriz[i][j] = sc.nextInt();
-      }
-    }
-    return matriz;
-  }
-
-  private static void mostrarMatriz(int matriz[][]) {
-    for (int i = 0; i < matriz.length; i++) {
-      for (int j = 0; j < matriz[i].length; j++) {
-        System.out.print(matriz[i][j] + " ");
-      }
-      System.out.println();
-    }
   }
 
   public static int sumarElementosMatriz(int matriz[][]) {
