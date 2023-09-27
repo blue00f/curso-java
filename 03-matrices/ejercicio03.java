@@ -6,35 +6,32 @@ public class ejercicio03 {
 
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
-    System.out.print("Ingrese la cantidad de filas: ");
-    int filas = sc.nextInt();
 
-    System.out.print("Ingrese la cantidad de columnas: ");
-    int columnas = sc.nextInt();
-
-    int indice;
-    do {
-      System.out.print("Ingrese el indice para buscar el maximo: ");
-      indice = sc.nextInt();
-    } while (indice >= columnas);
-
+    int filas = MatrizUtils.obtenerFila();
+    int columnas = MatrizUtils.obtenerColumna();
     int[][] matriz = MatrizUtils.obtenerMatriz(filas, columnas);
-
-    System.out.println("Matriz: ");
     MatrizUtils.mostrarMatriz(matriz);
 
-    System.out.println("Maximo del indice: " + findMaxColumnIndex(matriz, indice));
+    int indiceFila;
+    do {
+      System.out.print("Ingrese la fila para buscar el maximo: ");
+      indiceFila = sc.nextInt();
+    } while (indiceFila >= columnas);
+
+    System.out.println(
+        "El elemento maximo esta ubicado en la columna: " + findMaxRowIndex(matriz, indiceFila));
     sc.close();
   }
 
-  // cuando meto una matriz de tamaño 2x2 no encuentra el maximo
-  public static int findMaxColumnIndex(int matriz[][], int indice) {
-    int maximo = matriz[0][indice];
+  public static int findMaxRowIndex(int matriz[][], int indiceFila) {
+    int maximo = matriz[indiceFila][0];
+    int columna = 0;
     for (int i = 1; i < matriz.length; i++) {
-      if (maximo < matriz[i][indice]) {
-        maximo = matriz[i][indice];
+      if (maximo < matriz[i][indiceFila]) {
+        maximo = matriz[i][indiceFila];
+        columna = i;
       }
     }
-    return maximo;
+    return columna;
   }
 }

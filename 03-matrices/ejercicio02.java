@@ -6,15 +6,10 @@ public class ejercicio02 {
 
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
-    System.out.print("Ingrese la cantidad de filas: ");
-    int filas = sc.nextInt();
 
-    System.out.print("Ingrese la cantidad de columnas: ");
-    int columnas = sc.nextInt();
-
+    int filas = MatrizUtils.obtenerFila();
+    int columnas = MatrizUtils.obtenerColumna();
     int[][] matriz = MatrizUtils.obtenerMatriz(filas, columnas);
-
-    System.out.println("Matriz: ");
     MatrizUtils.mostrarMatriz(matriz);
 
     System.out.println("Contador de positivos: " + contarPositivos(matriz));
