@@ -7,14 +7,18 @@ public class ejercicio13 {
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
 
+    // hago uso de MatrizUtils creado por mi para reutilizar codigo en todos los
+    // ejercicios
     int filas = MatrizUtils.obtenerFila();
     int columnas = MatrizUtils.obtenerColumna();
     int[][] matriz = MatrizUtils.obtenerMatriz(filas, columnas);
     MatrizUtils.mostrarMatriz(matriz);
 
+    // la nueva matriz se iguala con lo que retorna esta funcion
     int[][] matrizModificado = rotarMatrizALaDerecha(matriz);
     MatrizUtils.mostrarMatriz(matrizModificado);
 
+    // cierro el scanner al final para liberar recursos de memoria
     sc.close();
   }
 
@@ -23,7 +27,8 @@ public class ejercicio13 {
     int columnas = matriz[0].length;
     int[][] matrizRotada = new int[filas][columnas];
 
-    // se interan las columnas de esta forma [j][i]
+    // se interan las columnas de esta forma [j][i], primero las columnas y despues
+    // las filas
     for (int j = 0; j < columnas; j++) {
       for (int i = 0; i < filas; i++) {
         int nuevaFila = i;
