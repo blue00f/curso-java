@@ -37,4 +37,25 @@ public class MatrizUtils {
       System.out.println();
     }
   }
+
+  public static double[][] obtenerMatrizDouble(int filas, int columnas) {
+    double[][] matriz = new double[filas][columnas];
+    for (int i = 0; i < filas; i++) {
+      for (int j = 0; j < columnas; j++) {
+        System.out.print("Ingrese el valor en la posición [" + i + "][" + j + "]: ");
+        matriz[i][j] = sc.nextDouble();
+      }
+    }
+    return matriz;
+  }
+
+  public static void mostrarMatrizDouble(double matriz[][]) {
+    System.out.println("Matriz: ");
+    for (int i = 0; i < matriz.length; i++) {
+      for (int j = 0; j < matriz[i].length; j++) {
+        System.out.print(matriz[i][j] + "\t");
+      }
+      System.out.println();
+    }
+  }
 }

@@ -15,12 +15,12 @@ public class ejercicio12 {
 
     int columnaUno, columaDos;
     do {
-      System.out.print("Ingrese la fila 1: ");
+      System.out.print("Ingrese la columna 1: ");
       columnaUno = sc.nextInt();
     } while (columnaUno >= columnas);
 
     do {
-      System.out.print("Ingrese la fila 2: ");
+      System.out.print("Ingrese la columna 2: ");
       columaDos = sc.nextInt();
     } while (columaDos >= columnas);
 
