@@ -8,6 +8,12 @@ public class Matrix {
 		this.setRows(rows);
 		this.setColumns(columns);
 		this.data = new double[rows][columns];
+		
+		for (int i = 0; i < rows; i++) {
+			for (int j= 0; j < columns; j++) {
+				this.data[i][j] = 0.0;
+			}
+		}
 	}
 
 	public void setRows(int rows) {
