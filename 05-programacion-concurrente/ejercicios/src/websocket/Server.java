@@ -10,7 +10,7 @@ public class Server {
 
 	public static void main(String[] args) {
 
-		try(ServerSocket listeningSocket = new ServerSocket(12345)) {
+		try (ServerSocket listeningSocket = new ServerSocket(12345)) {
 			// El servidor entra en un ciclo infinito. Se debería
 			// utilizar una mejor estrategia de salida. Alcanza para
 			// demostrar los conceptos de sockets.
@@ -36,19 +36,21 @@ public class Server {
 		// los canales de comunicación que utiliza el mismo. Esto
 		// permite al servidor leer y escribir del socket como si
 		// estuviera leyendo del teclado y escribiendo a la consola.
-		try(Scanner input = new Scanner(socket.getInputStream());
-			PrintWriter output = new PrintWriter(socket.getOutputStream())) {
-			
+		try (Scanner input = new Scanner(socket.getInputStream());
+				PrintWriter output = new PrintWriter(socket.getOutputStream())) {
+
 			////////////////////////////////////////////////////////////////////////////////////////////
 			// El protocolo que tienen que cumplir es el siguiente:
-			// 1.- El cliente envía al servidor la cantidad de elementos que van a contener los vectores.
+			// 1.- El cliente envía al servidor la cantidad de elementos que van a contener
+			//////////////////////////////////////////////////////////////////////////////////////////// los
+			//////////////////////////////////////////////////////////////////////////////////////////// vectores.
 			// 2.- El cliente envía uno a uno los elementos del primer vector.
 			// 3.- El cliente envía uno a uno los elementos del segundo vector.
 			// 4.- El servidor contesta con el resultado del producto escalar.
 			////////////////////////////////////////////////////////////////////////////////////////////
 
 			// 1.- Leer tamaño de los vectores.
-			int size = input.nextInt()+5;
+			int size = input.nextInt() + 5;
 
 			// 4.- El servidor envía el resultado al cliente.
 			output.println(size);

@@ -13,21 +13,23 @@ public class Client {
 		// Le enviará los vectores al servidor, esperará por la respuesta del servidor,
 		// y le mostrará la respuesta al usuario.
 
-		try(Scanner in = new Scanner(System.in)) {
+		try (Scanner in = new Scanner(System.in)) {
 
 			System.out.print("Ingrese el tamaño de los vectores: ");
 			int size = in.nextInt();
 
-
 			// Se le enviará la información al servidor.
-			// Se crean el socket y los objetos que nos ayudan a leer y escribir sobre el socket.
-			try(Socket socket = new Socket("localhost", 12345);
-				Scanner input = new Scanner(socket.getInputStream());
-				PrintWriter output = new PrintWriter(socket.getOutputStream())) {
-				
+			// Se crean el socket y los objetos que nos ayudan a leer y escribir sobre el
+			// socket.
+			try (Socket socket = new Socket("localhost", 12345);
+					Scanner input = new Scanner(socket.getInputStream());
+					PrintWriter output = new PrintWriter(socket.getOutputStream())) {
+
 				////////////////////////////////////////////////////////////////////////////////////////////
 				// El protocolo que tienen que cumplir es el siguiente:
-				// 1.- El cliente envía al servidor la cantidad de elementos que van a contener los vectores.
+				// 1.- El cliente envía al servidor la cantidad de elementos que van a contener
+				//////////////////////////////////////////////////////////////////////////////////////////// los
+				//////////////////////////////////////////////////////////////////////////////////////////// vectores.
 				// 2.- El cliente envía uno a uno los elementos del primer vector.
 				// 3.- El cliente envía uno a uno los elementos del segundo vector.
 				// 4.- El servidor contesta con el resultado del producto escalar.
@@ -43,7 +45,7 @@ public class Client {
 				int tamanio = input.nextInt();
 
 				// Se imprime por pantalla el resultado.
-				System.out.println(String.format("El tamaño del vector es "+ tamanio));
+				System.out.println(String.format("El tamaño del vector es " + tamanio));
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
